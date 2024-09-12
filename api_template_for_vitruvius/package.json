@@ -1,0 +1,21 @@
+{
+  "name": "api_template_for_vitruvius",
+  "version": "0.0.1",
+  "main": "app.js",
+  "scripts": {
+    "start:dev": "nodemon app.js",
+    "start": "node app.js",
+    "named_test_main:q_test_main": "node ./public/src/named_test_main/q_test_main.js"
+  },
+  "dependencies": {
+    "@antonpichka/vitruvius": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "ip": "^2.0.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
