@@ -1,6 +1,6 @@
-const { BaseDataForNamed } = require("@antonpichka/vitruvius");
+const { BaseDataForNamedVitruvius } = require("@antonpichka/vitruvius");
 
-class DataForExampleVitruvius extends BaseDataForNamed {
+class DataForExampleVitruvius extends BaseDataForNamedVitruvius {
     constructor() {
         super();
     }

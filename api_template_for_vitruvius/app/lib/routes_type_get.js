@@ -1,19 +1,18 @@
 const { debugPrint, debugPrintException } = require("@antonpichka/vitruvius");
-const dotenv = require("dotenv");
-const express = require("express");
-const router = express.Router();
-const ExampleVitruvius = require("./public/src/named_vitruvius/example_vitruvius/example_vitruvius.js");
-const EnumFirstRequestMethodExampleVitruvius = require("./public/src/named_vitruvius/example_vitruvius/named_method_example_vitruvius/enum_first_request_method_example_vitruvius.js"); 
+const router = require("express").Router();
+const ExampleVitruvius = require("./named_vitruvius/example_vitruvius/example_vitruvius.js");
+const EnumFirstRequestMethodExampleVitruvius = require("./named_vitruvius/example_vitruvius/named_method_example_vitruvius/enum_first_request_method_example_vitruvius.js"); 
+const ExceptionCaseFirstRequestMethodExampleVitruvius = require("./named_vitruvius/example_vitruvius/named_method_example_vitruvius/named_case_named_method_named_vitruvius/exception_case_first_request_method_example_vitruvius.js");
+const SuccessCaseFirstRequestMethodExampleVitruvius = require("./named_vitruvius/example_vitruvius/named_method_example_vitruvius/named_case_named_method_named_vitruvius/success_case_first_request_method_example_vitruvius.js");
 const { Client } = require("pg");
-
-dotenv.config();
+require("dotenv").config({ path: "../../.env" });
 
 const client = new Client({
   host: "db",
   user: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_NAME,
-  port: process.env.DB_PORT,
+  port: process.env.POSTGRES_PORT,
 });
 
 client.connect()
@@ -27,22 +26,19 @@ router.get("/", (_req, res) => {
   });
 });
 
-router.get("/example", async (_req, res)  => {
+router.get("/example", async (req, res)  => {
   const exampleVitruvius = new ExampleVitruvius();
   const firstRequest = await exampleVitruvius.firstRequest();
-  debugPrint(firstRequest.toString());
   switch(firstRequest.getEnumNamedMethodNamedVitruvius) {
       case EnumFirstRequestMethodExampleVitruvius.exception:
-          res.status(504).json({
-            timestamp : new Date().toLocaleString(),
-            message : "Exception: " + firstRequest.exceptionController.getKeyParameterException
-          });
+          new ExceptionCaseFirstRequestMethodExampleVitruvius(req,res,firstRequest.exceptionController)
+            .initBuild()
+            .disposeBuild();
           break;
       case EnumFirstRequestMethodExampleVitruvius.success:
-          res.status(200).json({
-            timestamp : new Date().toLocaleString(),
-            message : "Success"
-          });
+          new SuccessCaseFirstRequestMethodExampleVitruvius(req,res)
+            .initBuild()
+            .disposeBuild();
           break;
       default:
           break;
@@ -58,10 +54,9 @@ router.get("/test/postgres", async (_req, res)  => {
       message : users.rows
     });
   } catch(error) {
-    debugPrintException("Error fetching users", error);
     res.status(500).json({
       timestamp : new Date().toLocaleString(),
-      message: "Internal Server Error"
+      message: error
     });
   }
 });
