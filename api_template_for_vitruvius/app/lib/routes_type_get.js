@@ -5,10 +5,10 @@ const EnumFirstRequestMethodExampleVitruvius = require("./named_vitruvius/exampl
 const ExceptionCaseFirstRequestMethodExampleVitruvius = require("./named_vitruvius/example_vitruvius/named_method_example_vitruvius/named_case_named_method_named_vitruvius/exception_case_first_request_method_example_vitruvius.js");
 const SuccessCaseFirstRequestMethodExampleVitruvius = require("./named_vitruvius/example_vitruvius/named_method_example_vitruvius/named_case_named_method_named_vitruvius/success_case_first_request_method_example_vitruvius.js");
 const { Client } = require("pg");
-require("dotenv").config({ path: "../../.env" });
+require("dotenv").config({ path: "../.env" });
 
 const client = new Client({
-  host: "db",
+  host: process.env.DB_DEPENDENCY_NAME,
   user: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_NAME,
@@ -17,7 +17,7 @@ const client = new Client({
 
 client.connect()
   .then(() => debugPrint("Connected to PostgreSQL"))
-  .catch(err => debugPrintException("Connection error", err.stack));
+  .catch(err => debugPrintException("Connection error" + err.stack));
 
 router.get("/", (_req, res) => {
   res.status(200).json({

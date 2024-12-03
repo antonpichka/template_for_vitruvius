@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const routesTypeGet = require("./routes_type_get");
 const routesTypePost = require("./routes_type_post");
-require("dotenv").config({ path: "../../.env" });
+require("dotenv").config({ path: "../.env" });
 const port = process.env.SERVER_PORT;
 
 app.use(express.json());

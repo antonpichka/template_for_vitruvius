@@ -1,7 +1,7 @@
 FROM node:18
 WORKDIR /usr/src/app
-COPY ./app/lib/package*.json ./
-RUN npm install
 COPY . .
+WORKDIR /usr/src/app/app
+RUN npm install
 EXPOSE 3000
-CMD ["node", "app.js"]
+CMD ["node", "./lib/app.js"]
