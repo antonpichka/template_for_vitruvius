@@ -11,7 +11,7 @@ const client = new Client({
   host: process.env.DB_DEPENDENCY_NAME,
   user: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_NAME,
+  database: process.env.POSTGRES_DB,
   port: process.env.POSTGRES_PORT,
 });
 
@@ -48,7 +48,7 @@ router.get("/example", async (req, res)  => {
 
 router.get("/test/postgres", async (_req, res)  => {
   try {
-    const users = await client.query('SELECT * FROM users');
+    const users = await client.query("SELECT * FROM users");
     res.status(200).json({
       timestamp : new Date().toLocaleString(),
       message : users.rows

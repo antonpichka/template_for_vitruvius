@@ -1,0 +1,7 @@
+FROM node:18
+WORKDIR /api
+COPY . .
+WORKDIR /api/app
+RUN npm install && npx nodemon -v
+EXPOSE 3000
+CMD ["npx", "nodemon", "--verbose", "./lib/app.js"]

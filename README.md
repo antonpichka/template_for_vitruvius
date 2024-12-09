@@ -11,11 +11,19 @@
 ### api_template_for_vitruvius
 
 - If you need to change the application name from 'api_template_for_vitruvius' to 'api_${your_name}':
-- - 'api_template_for_vitruvius/package.json':
+- - 'api_template_for_vitruvius/app/package.json':
 - - - '"name": "api_template_for_vitruvius"'
 
 #### Docker
 
-- For testing you need to use 2 commands, and other actions through the UI itself (Docker Desktop):
-- - docker-compose up --build
-- - docker-compose down
+- Here are the docker commands for .dev and .prod
+
+##### Dev
+
+- docker-compose -f docker-compose.dev.yml up --build
+- docker-compose -f docker-compose.dev.yml down
+
+##### Prod
+
+- docker-compose -f docker-compose.prod.yml up --build
+- docker-compose -f docker-compose.prod.yml down

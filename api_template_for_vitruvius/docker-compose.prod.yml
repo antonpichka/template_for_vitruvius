@@ -4,11 +4,11 @@ services:
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_NAME}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - ${POSTGRES_PORT}:${POSTGRES_PORT}
     volumes:
-      - postgres_db:/var/lib/postgresql/data
+      - postgres_db_prod:/var/lib/postgresql/data
 
   adminer:
     image: adminer
@@ -17,13 +17,14 @@ services:
     ports:
       - ${ADMINER_PORT}:${ADMINER_PORT}
 
-  server:
+  server_prod:
     build:
       context: .
+      dockerfile: Dockerfile.prod
     depends_on:
       - postgres
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
 
 volumes:  
-  postgres_db:
+  postgres_db_prod:
