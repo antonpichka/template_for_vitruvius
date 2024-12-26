@@ -24,7 +24,7 @@ services:
     depends_on:
       - postgres
     volumes:
-      - ./app/lib:/api/app/lib
+      - ./app/src:/api/app/src
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
 
