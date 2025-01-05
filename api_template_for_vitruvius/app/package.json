@@ -13,7 +13,7 @@
     "npx_jest:tests:test_model_wrapper_repository:test_example_wrapper_repository:test_example_wrapper_repository": "npx jest ./tests/test_model_wrapper_repository/test_example_wrapper_repository/test_example_wrapper_repository.test.ts"
   },
   "dependencies": {
-    "@antonpichka/vitruvius": "^2.0.1",
+    "@antonpichka/vitruvius": "^2.0.4",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "ip": "^2.0.1",

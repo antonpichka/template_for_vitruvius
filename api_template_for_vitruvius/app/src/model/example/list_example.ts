@@ -7,9 +7,9 @@ class ListExample<T extends Example> extends BaseListModel<T> {
     }
 
     public override clone(): ListExample<T> {
-        const newListModel = new Array();
+        const newListModel = new Array<T>();
         for(const itemModel of this.listModel) {
-            newListModel.push(itemModel.clone());
+            newListModel.push(itemModel.clone() as T);
         }
         return new ListExample(newListModel);
     }

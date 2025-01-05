@@ -17,7 +17,7 @@ class DataForExceptionCaseFirstRequestMethodExampleVitruvius extends BaseDataFor
         return "DataForExceptionCaseFirstRequestMethodExampleVitruvius(exceptionController: " + this.exceptionController + ", req: " + this.req + ", res: " + this.res + ")";
     }
 
-    public gatewayTimeout(): void {
+    public gatewayTimeoutParametersExceptionControllerAndRes(): void {
         this.res?.status(504).json({
             timestamp : new Date().toLocaleString(),
             message : "Exception: " + this.exceptionController.getKeyParameterException

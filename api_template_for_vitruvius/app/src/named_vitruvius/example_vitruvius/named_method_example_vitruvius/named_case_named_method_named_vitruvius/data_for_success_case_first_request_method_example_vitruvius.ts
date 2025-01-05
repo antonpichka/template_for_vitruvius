@@ -15,7 +15,7 @@ class DataForSuccessCaseFirstRequestMethodExampleVitruvius extends BaseDataForNa
         return "DataForSuccessCaseFirstRequestMethodExampleVitruvius(req: " + this.req + ", res: " + this.res + ")";
     }
     
-    public success(): void {
+    public successParameterRes(): void {
         this.res?.status(200).json({
             timestamp : new Date().toLocaleString(),
             message : "Success"

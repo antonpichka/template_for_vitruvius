@@ -8,9 +8,9 @@ class ListExampleWrapper extends BaseListModelWrapper {
     }
     
     public override createListModel(): ListExample<Example> {
-        const listModel = new Array();
+        const listModel = new Array<Example>();
         for(const itemListObject of this.listsListObject) {
-            listModel.push(new Example(itemListObject[0]));
+            listModel.push(new Example(itemListObject[0] as string));
         }
         return new ListExample(listModel);
     }

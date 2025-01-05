@@ -1,6 +1,6 @@
 enum EnumFirstRequestMethodExampleVitruvius {
-    exception,
-    success
+    exception = "exception",
+    success = "success"
 }
 
 export default EnumFirstRequestMethodExampleVitruvius;

@@ -10,7 +10,7 @@ class SuccessCaseFirstRequestMethodExampleVitruvius extends BaseNamedCaseNamedMe
     }
 
     public override initBuild(): BaseNamedCaseNamedMethodNamedVitruvius<DataForSuccessCaseFirstRequestMethodExampleVitruvius> {
-        this.dataForNamedCaseNamedMethodNamedVitruvius.success();
+        this.dataForNamedCaseNamedMethodNamedVitruvius.successParameterRes();
         return this;
     }
 

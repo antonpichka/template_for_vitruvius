@@ -10,7 +10,7 @@ class ExceptionCaseFirstRequestMethodExampleVitruvius extends BaseNamedCaseNamed
     }
 
     public override initBuild(): BaseNamedCaseNamedMethodNamedVitruvius<DataForExceptionCaseFirstRequestMethodExampleVitruvius> {
-        this.dataForNamedCaseNamedMethodNamedVitruvius.gatewayTimeout();
+        this.dataForNamedCaseNamedMethodNamedVitruvius.gatewayTimeoutParametersExceptionControllerAndRes();
         return this;
     }
 
