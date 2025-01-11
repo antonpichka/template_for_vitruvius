@@ -7,7 +7,7 @@ class ExampleWrapper extends BaseModelWrapper {
     }
 
     public override createModel(): Example {
-        return new Example(this.listObject[0] as string);
+        return new Example(this.listObject[0]);
     }
 }
 

@@ -2,7 +2,6 @@
   "name": "api_template_for_vitruvius",
   "version": "0.0.1",
   "private": true,
-  "main": "./src/app.ts",
   "scripts": {
     "download": "npm install .",
     "build": "tsc",
@@ -13,7 +12,7 @@
     "npx_jest:tests:test_model_wrapper_repository:test_example_wrapper_repository:test_example_wrapper_repository": "npx jest ./tests/test_model_wrapper_repository/test_example_wrapper_repository/test_example_wrapper_repository.test.ts"
   },
   "dependencies": {
-    "@antonpichka/vitruvius": "^2.0.4",
+    "@antonpichka/vitruvius": "^2.0.5",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "ip": "^2.0.1",
@@ -31,6 +30,6 @@
     "nodemon": "^3.1.9",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   }
 }
